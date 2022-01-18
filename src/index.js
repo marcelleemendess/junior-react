@@ -1,17 +1,65 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import App from "./App";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  gql
+} from "@apollo/client";
+
+import store from "./containers/redux/store";
+
+const client = new ApolloClient({
+  uri: "http://localhost:4000",
+  cache: new InMemoryCache()
+})
+
+client.query({
+  query: gql`
+    {
+      categories {
+        name
+        products {
+          id
+          name
+          inStock
+          gallery
+          description
+          category
+          attributes {
+            id
+            name
+            type
+            items {
+              displayValue
+              value
+              id
+            }
+          }
+          prices {
+            currency {
+              label
+              symbol
+            }
+            amount
+          }
+          brand
+        }
+      }
+    }
+  `
+}).then(res => console.log(res))
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <Provider store={store} >
+        <App />
+      </Provider>
+    </ApolloProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

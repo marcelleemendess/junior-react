@@ -1,0 +1,25 @@
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 50px repeat(2, 1fr);
+  grid-gap: 40px;
+  margin: 0 100px;
+}
+
+.title {
+  grid-column: 1 / 5;
+  grid-row: 1 / span;
+}
+
+.card-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+}
+
+.image {
+  width: 356px;
+  height: 338px;
+}
