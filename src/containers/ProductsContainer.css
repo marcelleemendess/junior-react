@@ -1,25 +1,26 @@
 .cards-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 50px repeat(2, 1fr);
-  grid-gap: 40px;
-  margin: 0 100px;
+  padding: 30px 5%;
 }
 
 .title {
-  grid-column: 1 / 5;
-  grid-row: 1 / span;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 30px 0px;
 }
 
 .card-product {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 10px;
+  border: 1px solid black;
 }
 
 .image {
-  width: 356px;
-  height: 338px;
+  width: 200px;
+  height: 200px;
+  background-size: cover;
 }

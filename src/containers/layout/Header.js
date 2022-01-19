@@ -8,27 +8,23 @@ import cart from "../../assets/empty-cart.png"
 class Header extends Component {
     render () {
         return (
-            <div className="nav">
-                <ul>
-                    <li className="nav-1">
+            <div className="header">
+                <ul className="nav-links">
+                    <li>
                         <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>All</NavLink>
                     </li>
-                    <li className="nav-2">
+                    <li>
                         <NavLink to="/clothes" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Clothes</NavLink>
                     </li>
-                    <li className="nav-3">
+                    <li>
                         <NavLink to="/tech" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Tech</NavLink>
                     </li>
-                    <li className="nav-4"> 
-                        <img src={bag} alt="green bag"/>    
-                    </li>
-                    <li className="nav-5">
-                        $
-                    </li>
-                    <li className="nav-6">
-                            <img src={cart} alt="Empty Cart"/>   
-                    </li>
                 </ul>
+                <img className="green-bag" src={bag} alt="green bag"/>
+                <div className="nav-right">
+                    <a className="currency" href="#">$</a> 
+                    <a className="cart"href="#"><img src={cart} alt="Empty Cart" /></a>
+                </div>    
             </div>
         )
     }

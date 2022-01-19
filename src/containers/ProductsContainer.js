@@ -45,22 +45,20 @@ function ProductsContainer() {
   
   return (
     <div className="cards-container">
-      <div className="title">
-        <h1>{data.categories[0].name}</h1>
-      </div>
-      {data.categories[0].products.map((product) => (
-        <div className="card-product" key={product.id}>
-          <div className="card-image">
-            <img className="image"src={product.gallery[0]} alt={product.name} />
-          </div>
-          <div className="card-footer">
-            <span className="name">{product.name}</span>
-            <span className="price">${product.prices[0].amount}</span>
-          </div>
-        </div>
-      ))} 
+      <h1 className="title">{data.categories[0].name}</h1>
+      <ul className="card-product">
+        {data.categories[0].products.map((product) => ( 
+          <li className="card-info" key={product.id}>
+            <img className="image" src={product.gallery[0]} alt={product.name} />
+            <div className="card-footer">
+              <p>{product.name}</p>
+              <p>${product.prices[0].amount}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
 
-export default ProductsContainer;
+export default ProductsContainer; 

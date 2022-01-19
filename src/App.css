@@ -12,10 +12,17 @@
 }
 
 body {
-  font-family: Lato, Raleway, sans-serif;
+  font-family: Raleway, Lato, sans-serif;
 }
 
 html {
   box-sizing: border-box;
   /* font-size: 62.5%; */
+}
+
+img {
+  max-width: 100%;
+}
+
+.App {
 }
