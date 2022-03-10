@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 //import { connect } from "react-redux";
 // import { useSelector } from "react-redux";
 //import * as setProducts  from "../containers/redux/actions/productActions";
-import ProductsContainer from "./ProductsContainer";
+// import ProductsContainer from "./ProductsContainer";
 
-class Products extends Component {
+// class Products extends Component {
   // constructor(props) {
   //   super(props)
     
@@ -14,17 +14,17 @@ class Products extends Component {
   //   }
   // }
  
-  render() {
+  // render() {
     // const products  = this.props.products
     // console.log(products)
 
-    return (
-      <div className="products">
-        <ProductsContainer />
-      </div>
-    )
-  }
-}
+  //   return (
+  //     <div className="products">
+  //       <ProductsContainer />
+  //     </div>
+  //   )
+  // }
+// }
 
 // const mapStateToProps = state => {
 //   return {
@@ -36,6 +36,6 @@ class Products extends Component {
 //   setProducts,
 // }
  
-export default Products;
+// export default Products;
 
 

@@ -2,30 +2,41 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import App from "./App";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql
-} from "@apollo/client";
+import { ApolloClient, gql } from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+import { createHttpLink } from "apollo-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
+
+// import {
+//   ApolloClient,
+//   InMemoryCache,
+//   ApolloProvider,
+//   gql
+// } from "@apollo/client";
 
 import store from "./containers/redux/store";
 
+const httpLink = createHttpLink({
+  uri: "http://localhost:4000"
+});
+
+const cache = new InMemoryCache()
+
 const client = new ApolloClient({
-  uri: "http://localhost:4000",
-  cache: new InMemoryCache()
+  link: httpLink,
+  cache
 })
 
 client.query({
   query: gql`
-    {
+   {
       categories {
         name
         products {
           id
           name
           inStock
-          gallery
+          gallery 
           description
           category
           attributes {
@@ -47,6 +58,16 @@ client.query({
           }
           brand
         }
+      },
+      product(id:"huarache-x-stussy-le" ){
+        id
+        name 
+        inStock
+        gallery 
+      },
+      currencies {
+        label
+        symbol
       }
     }
   `
